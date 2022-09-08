@@ -11,6 +11,55 @@
 # Define server logic 
 shinyServer(function(input, output, session) {
   
+  ## render UI for biodata
+  output$txt1 <- renderUI({
+    textInput("Name", "Name:", "Corede Bala")
+    
+  })
+  
+  output$txt2 <- renderUI({
+    selectInput("Sex", "Sex:",
+                c("Male" = "Male",
+                  "Female" = "Female")
+    )
+  })
+  
+  output$txt3 <- renderUI({
+    textInput("Age", "Age (in years):", "45")
+  })
+  
+  output$txt4 <- renderUI({
+    selectInput("Race", "Race/Ethicity:",
+                c("African" = "African",
+                  "European" = "European", 
+                  "East Asian" = "East Asian",
+                  "South Asian" = "South Asian",
+                  "Admixed American/Hispanic" = "Admixed American/Hispanic")
+    )
+  })
+  
+  
+  output$txt5 <- renderUI({
+    selectInput("Prescribed", "Prescribed medication(s):",
+                selected = c("Nortriptyline", "Clozapine"),
+                multiple = T,
+                c("Escitalopram (SSRI)" = "Escitalopram",
+                  "Nortriptyline (TCA)" = "Nortriptyline",
+                  "Paroxetine (SSRI)" = "Paroxetine",
+                  "Fluvoxamine (SSRI)" = "Fluvoxamine",
+                  "Milnacipram (SNRI)" = "Milnacipram",
+                  "Clozapine" = "Clozapine",
+                  "Olanzapine" = "Olanzapine")
+    )
+  })
+  
+  
+
+  
+  output$txt6 <- renderUI({
+    textInput("Weight", "Weight (in kg):", "65")
+  })
+  
   ## RISK OF SUICIDE FROM ESCITALOPRAM
   
   suicideEscitalopram <- reactive({
@@ -62,7 +111,7 @@ shinyServer(function(input, output, session) {
     
     prob_adr_percent <- prob_adr*100
       
-    return (paste(prob_adr_percent))
+    return (paste(round(prob_adr_percent, digits = 0)))
     
   })
   
@@ -91,7 +140,7 @@ shinyServer(function(input, output, session) {
     
     prob_adr_percent <- prob_adr*100
     
-    return (paste(prob_adr_percent))
+    return (paste(round(prob_adr_percent, digits = 0)))
     
   })
   
@@ -170,7 +219,7 @@ shinyServer(function(input, output, session) {
     
     prob_adr_percent <- prob_adr*100
     
-    return (paste(prob_adr_percent))
+    return (paste(round(prob_adr_percent, digits = 0)))
     
   })
 
@@ -217,7 +266,7 @@ shinyServer(function(input, output, session) {
     
     prob_adr_percent <- prob_adr*100
     
-    return (paste(prob_adr_percent))
+    return (paste(round(prob_adr_percent, digits = 0)))
     
   })
   
@@ -277,15 +326,15 @@ shinyServer(function(input, output, session) {
               + log(or5) + log(or6) + log(or7) + log(or8))
     
     
-    prob_adr <- OR*odds_in_pop/(1 + (OR*odds_in_pop))
-
-    
     odds_in_pop <- 33/62
     
         
+    prob_adr <- OR*odds_in_pop/(1 + (OR*odds_in_pop))
+
+        
     prob_adr_percent <- prob_adr*100
     
-    return (paste(prob_adr_percent))
+    return (paste(round(prob_adr_percent, digits = 0)))
     
   })
   
@@ -295,7 +344,7 @@ shinyServer(function(input, output, session) {
   
   ## RISK OF ANTIPSYCHOTIC-INDUCED WEIGHT GAIN
   
-  sexDysfunction <- reactive({
+  weightGain <- reactive({
     
     if(input$rs7720513_1 == 'A'){
       or1 <- 0.406
@@ -410,12 +459,12 @@ shinyServer(function(input, output, session) {
                       + or14 + or15 + or16 + or17 + or18)
     
 
-    weight <- as.numberic(input$txt4)
+    weight <- as.numeric(input$Weight)
     
         
     new_weight <- weight + weight_change
     
-    return (paste(new_weight))
+    return (paste(round(new_weight, digits = 1)))
     
   })
   
@@ -704,69 +753,90 @@ shinyServer(function(input, output, session) {
     proportion_with_similar_risk_pattern <- 
       (p1*p2*p3*p4*p5*p6*p7*p8*p9*p10*p11*p12*p13*p14*p15*p16*p17*p18
        *p19*p20*p21*p22*p23*p24*p25*p26*p27*p28*p29*p30*p31*p32
-       *p33*p34*p35*p36*p37*p38*p39*p40*p41*p42*p43*p44*p45*p46)
+       *p33*p34*p35*p36*p37*p38*p39*p40*p41*p42*p43*p44*p45*p46) 
     
     
     
-    return(proportion_with_similar_risk_pattern)
+    return(proportion_with_similar_risk_pattern * 100)
     
     
     
     })
   
+
   
-  output$report <- renderText({
+  output$presText <- renderText({
     if(input$submit>0) {
-      paste0('Name: ', input$txt1)
-      
+      paste(h1(strong('ORIGINAL PRESCRIPTION: ')))
     }
   })
   
   
-  
-  
-  yourReport <- reactive ({
-    name <- paste0('Name: ', isolate(input$txt1))
-    return(name)
-    })
-  
-  output$report <- renderText({
+  output$message <- renderText({
     if(input$submit>0) {
-      isolate(yourReport())
-      
+      paste(h2(strong('What is the risk profile of the prescribed drug(s)?')), 
+            h2(strong('Can you find suitable alternatives with lower risk profiles?')))
     }
   })
   
- # output$txtDOB <- renderText({
-  #  if(input$submit>0) {
-   #   isolate(input$txt3)
-    #}
-  #})
-  
-  #output$yourRace <- renderText({
-   # if(input$submit>0) {
-    #  isolate(input$Race)
-    #}
-#  })
-  
- # output$yourPrescribed <- renderText({
-  #  if(input$submit>0) {
-   #   isolate(input$Prescribed)
-    #}
-  #})
-  
-  #output$weight <- renderText({
-   # if(input$submit>0) {
-    #  isolate(input$txt4)
-    #}
-  #})
+  output$drugChoice <- renderText({
+    if(input$submit>0) {
+      paste(input$Prescribed)
+    }
+  })
   
   
-#  output$txtout <- renderText({
- #   if(input$submit>0) {
-  #    isolate(suicideEscitalopram())
-   # }
-  #})
+  output$yourReport <- renderUI ({
+    if(input$submit>0) {
+      HTML(paste(h2(strong("RESULTS")),
+                 paste(strong('NAME: '), input$Name), 
+                 paste(strong('SEX: '), input$Sex), 
+                 paste(strong('AGE: '), input$Age, ' years', sep = ''), 
+                 paste(strong('RACE: '), input$Race), 
+                 paste(strong('WEIGHT: '), input$Weight, 'kg', sep = ''),
+                 h5(strong('')),
+                 strong('ADVERSE DRUG REACTION RISK PROFILE'),
+                 paste(h5('Risk of increasing suicidal ideation from Nortriptyline: '), 
+                       strong(suicideNortriptyline()), 
+                       strong('%'), 
+                       sep = ''), 
+                 paste(h5('Risk of increasing suicidal ideation from Escitalopram: '), 
+                       strong(suicideEscitalopram()), 
+                       strong('%'), 
+                       sep = ''),
+                 paste(h5('Risk of sexual dysfunction from SSRI/SNRI antidepressants: '), 
+                       strong(sexDysfunction()), 
+                       strong('%'), 
+                       sep = ''), 
+                 paste(h5('Risk of clozapine-induced agranulocytosis: '), 
+                       strong(agranulocytosis()), 
+                       strong('%'), 
+                       sep = ''), 
+                 paste(h5('Risk of clozapine-induced myocarditis: '), 
+                       strong(myocarditis()), 
+                       strong('%'), 
+                       sep = ''),
+                 paste(h5('Predicted weight if placed on clozapine or olanzapine: '), 
+                       strong(weightGain()), 
+                       strong('kg'), 
+                       sep = ''),
+                 sep = '<br/>'))
+      }
+    }
+    )
+  
+  
+  
+  output$download <- renderUI ({
+    if(input$submit>0) {
+      actionButton('downloadData', h2(strong('DOWNLOAD TEST RESULTS')))
+    }
+  }
+  )
+  
+  
+  
+  
   
   
   #observeEvent(input$Test, {
