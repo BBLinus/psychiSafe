@@ -1,0 +1,34 @@
+REFERENCE STUDY FOR PHARMACOGENOMICS GWAS
+Genome-wide Association Studies of Drug Response and Toxicity: An Opportunity for Genome Medicine. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5443656/#!po=35.7143
+
+PHARMACOGENOMICS GWAS STUDIES WITH SUMMARY DATA
+Antidepressants
+Perroud N, Uher R, Ng MY, Guipponi M, Hauser J, Henigsberg N, Maier W, Mors O, Gennarelli M, Rietschel M, Souery D, Dernovsek MZ, Stamp AS, Lathrop M, Farmer A, Breen G, Aitchison KJ, Lewis CM, Craig IW, McGuffin P. Genome-wide association study of increasing suicidal ideation during antidepressant treatment in the GENDEP project. Pharmacogenomics J. 2012 Feb;12(1):68-77. doi: 10.1038/tpj.2010.70. Epub 2010 Sep 28. PMID: 20877300. https://pubmed.ncbi.nlm.nih.gov/20877300/
+Summary Data: https://www.ebi.ac.uk/gwas/publications/20877300
+Drugs: Escitalopram; Nortriptyline
+ADR: Increasing suicidal ideation
+Odds of increasing suicidal ideation in population sample: 244/462
+
+Kurose K, Hiratsuka K, Ishiwata K, Nishikawa J, Nonen S, Azuma J, Kato M, Wakeno M, Okugawa G, Kinoshita T, Kurosawa T, Hasegawa R, Saito Y. Genome-wide association study of SSRI/SNRI-induced sexual dysfunction in a Japanese cohort with major depression. Psychiatry Res. 2012 Aug 15;198(3):424-9. doi: 10.1016/j.psychres.2012.01.023. Epub 2012 Mar 23. PMID: 22445761. https://pubmed.ncbi.nlm.nih.gov/22445761/
+Summary Data: https://www.ebi.ac.uk/gwas/publications/22445761
+Drugs: Paroxetine (SSRI); Fluvoxamine (SSRI); Milnacipran (SNRI)
+ADR: Sexual dysfunction
+Odds of sexual dysfunction in population sample: 36/165
+
+Antipsychotics
+Saito T, Ikeda M, Mushiroda T, Ozeki T, Kondo K, Shimasaki A, Kawase K, Hashimoto S, Yamamori H, Yasuda Y, Fujimoto M, Ohi K, Takeda M, Kamatani Y, Numata S, Ohmori T, Ueno S, Makinodan M, Nishihata Y, Kubota M, Kimura T, Kanahara N, Hashimoto N, Fujita K, Nemoto K, Fukao T, Suwa T, Noda T, Yada Y, Takaki M, Kida N, Otsuru T, Murakami M, Takahashi A, Kubo M, Hashimoto R, Iwata N. Pharmacogenomic Study of Clozapine-Induced Agranulocytosis/Granulocytopenia in a Japanese Population. Biol Psychiatry. 2016 Oct 15;80(8):636-42. doi: 10.1016/j.biopsych.2015.12.006. Epub 2016 Feb 11. PMID: 26876947. https://pubmed.ncbi.nlm.nih.gov/26876947/
+Summary Data: https://www.ebi.ac.uk/gwas/publications/26876947
+Drugs: Clozapine
+ADR: Clozapine-induced agranulocytosis/granulocytopenia
+Odds of clozapine-induced agranulocytosis in population sample: 23/29
+
+Lacaze P, Ronaldson KJ, Zhang EJ, Alfirevic A, Shah H, Newman L, Strahl M, Smith M, Bousman C, Francis B, Morris AP, Wilson T, Rossello F, Powell D, Vasic V, Sebra R, McNeil JJ, Pirmohamed M. Genetic associations with clozapine-induced myocarditis in patients with schizophrenia. Transl Psychiatry. 2020 Jan 27;10(1):37. doi: 10.1038/s41398-020-0722-0. PMID: 32066683; PMCID: PMC7026069. https://pubmed.ncbi.nlm.nih.gov/32066683/
+Summary Data: https://www.ebi.ac.uk/gwas/publications/32066683
+Drugs: Clozapine
+ADR: Clozapine-induced myocarditis
+Odds of clozapine-induced myocarditis in population sample: 33/62
+
+Maciukiewicz M, Tiwari AK, Zai CC, Gorbovskaya I, Laughlin CP, Nurmi EL, Liebermann JA, Meltzer HY, Kennedy JL, Müller DJ. Genome-wide association study on antipsychotic-induced weight gain in Europeans and African-Americans. Schizophr Res. 2019 Oct;212:204-212. doi: 10.1016/j.schres.2019.07.022. Epub 2019 Aug 22. PMID: 31447353. https://pubmed.ncbi.nlm.nih.gov/31447353/
+Summary Data: https://www.ebi.ac.uk/gwas/studies/GCST009302
+Drugs: Clozapine; Olanzapine
+ADR: Weight gain
