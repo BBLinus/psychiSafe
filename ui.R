@@ -14,7 +14,7 @@ library(shinyWidgets)
 library(tidyverse)
 
 
-# Define UI for application that draws a histogram
+# Define UI for application 
 
 b64 <- base64enc::dataURI(file="psychiSafe_logo.jpg", mime="image/png")
 
